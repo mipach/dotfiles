@@ -1,0 +1,92 @@
+" Author:      Michalis Pachilakis
+" Email:       michalispax@gmail.com
+" Description: useful  settings for the vim 
+" Modified:    Tue 11 Dec 2018 
+
+" Basic settings
+"set spell check
+set spell spelllang=en_us
+
+
+" number of lines vim will remember
+set history=500
+
+" set autoread when a file is changed externaly
+set autoread
+
+" Enable syntax highlighting
+syntax on
+
+" Show matching brackets
+set showmatch
+
+" Jump to matching search result
+set incsearch
+
+" highlight search results
+set hlsearch
+
+" search in a smart way about the cases
+set smartcase
+
+" Dark background
+set background=dark
+
+" Visual mode colour
+hi Visual ctermbg=018
+
+" Set column at 81 chars
+set colorcolumn=81
+hi ColorColumn ctermbg=018
+
+" Show current position
+set ruler
+
+" Line numbers
+set number
+hi LineNr ctermfg=033
+
+" Disable sounds
+set visualbell
+set noerrorbells
+set t_vb=
+
+" Highlight misspelled words
+hi SpellBad ctermfg=015 ctermbg=000
+hi SpellCap ctermfg=015 ctermbg=000
+
+" Do not expand TABs to spaces
+set noexpandtab
+
+" show existing tab with 4 spaces
+set tabstop=4
+
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+
+" on pressing tab, insert 4 spaces
+set expandtab
+
+" set encoding
+set encoding=utf8
+
+" auto indent, smart indent, wrap lines
+set ai
+set si
+set wrap
+
+" add useful stuff to title bar (file name, flags, cwd)
+" based on @factorylabs
+if has('title') && (has('gui_running') || &title)
+    set titlestring=
+    set titlestring+=%f
+    set titlestring+=%h%m%r%w
+    set titlestring+=\ -\ %{v:progname}
+    set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')}
+endif
+
+" Jump to the last position when reopening a file
+if has("autocmd")
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
+        \| exe "normal! g'\"" | endif
+endif
