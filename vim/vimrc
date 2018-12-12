@@ -1,7 +1,7 @@
 " Author:      Michalis Pachilakis
 " Email:       michalispax@gmail.com
 " Description: useful  settings for the vim 
-" Modified:    Tue 12 Dec 2018 
+" Modified:    Tue 11 Dec 2018 
 
 " Basic settings
 
@@ -95,3 +95,12 @@ if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
         \| exe "normal! g'\"" | endif
 endif
+
+" Enable filetype-specific completion
+" load plugin based on the current file
+" CTRL-X CTRL-O
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
+" Tab completion
+imap <Tab> <C-P>
