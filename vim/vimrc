@@ -1,12 +1,17 @@
 " Author:      Michalis Pachilakis
 " Email:       michalispax@gmail.com
 " Description: useful  settings for the vim 
-" Modified:    Tue 11 Dec 2018 
+" Modified:    Tue 12 Dec 2018 
 
 " Basic settings
-"set spell check
-set spell spelllang=en_us
 
+"set spell check
+"set spell spelllang=en_us
+
+" set spell checking only in html, txt and tex files
+autocmd FileType html set spell spelllang=en_us
+autocmd FileType tex set spell spelllang=en_us
+autocmd FileType text set spell spelllang=en_us
 
 " number of lines vim will remember
 set history=500
