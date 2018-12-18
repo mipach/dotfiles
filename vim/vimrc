@@ -43,9 +43,10 @@ set background=dark
 hi Visual ctermbg=018
 
 " Set column at 81 chars
-set colorcolumn=81
-hi ColorColumn ctermbg=018
-
+"set colorcolumn=81
+"set colorcolumn=121
+let &colorcolumn="80,".join(range(120,122),",")
+nnoremap <F2> :let &cc= &cc == '' ? "80,".join(range(120,122),","): '' <CR>
 " Show current position
 set ruler
 
