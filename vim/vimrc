@@ -1,7 +1,7 @@
 " Author:      Michalis Pachilakis
 " Email:       michalispax@gmail.com
-" Description: useful  settings for the vim 
-" Modified:    Tue 11 Dec 2018 
+" Description: useful settings for the vim 
+" Modified:    Tue 18 Dec 2018 
 
 " Basic settings
 
@@ -9,9 +9,9 @@
 "set spell spelllang=en_us
 
 " set spell checking only in html, txt and tex files
-autocmd FileType html set spell spelllang=en_us
-autocmd FileType tex set spell spelllang=en_us
-autocmd FileType text set spell spelllang=en_us
+autocmd FileType html setlocal spell spelllang=en_us
+autocmd FileType tex setlocal spell spelllang=en_us
+autocmd FileType text setlocal spell spelllang=en_us
 
 " number of lines vim will remember
 set history=500
@@ -29,7 +29,9 @@ set showmatch
 set incsearch
 
 " highlight search results
-set hlsearch
+set hlsearch!
+
+nnoremap <F3> :set hlsearch!<CR>
 
 " search in a smart way about the cases
 set smartcase
@@ -57,7 +59,8 @@ set noerrorbells
 set t_vb=
 
 " Highlight misspelled words
-hi SpellBad ctermfg=015 ctermbg=000
+"hi SpellBad ctermfg=015 ctermbg=000
+hi SpellBad cterm=underline
 hi SpellCap ctermfg=015 ctermbg=000
 
 " Do not expand TABs to spaces
@@ -99,8 +102,8 @@ endif
 " Enable filetype-specific completion
 " load plugin based on the current file
 " CTRL-X CTRL-O
-filetype plugin on
+filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
 
-" Tab completion
-imap <Tab> <C-P>
+" Shift-Tab completion
+imap <S-Tab> <C-P>
